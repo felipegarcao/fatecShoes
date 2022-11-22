@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
+  gap: 1rem;
+}
+
+header a {
+  transition: opacity 0.2s;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+header a:hover {
+  opacity: 0.7;
+}
+
+header h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+a.carrinho {
+  display: flex;
+  align-items: center;
+  text-align: none;
+}
+
+a.carrinho div {
+  text-align: right;
+  margin-right: 10px;
+}
+
+a.carrinho div strong {
+  display: block;
+  color: #fff;
+}
+
+a.carrinho div span {
+  font-size: 12px;
+  color: #999;
+}
+
+a.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff !important;
+}
+
+body {
+  background: #191920 url('assets/background.svg') no-repeat center top;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+button {
+  font: 14px Roboto, sans-serif;
+
+}
+
+.container-home {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px 50px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+}
+
+ol {
+  display: flex;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+ul li {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+
+li img {
+  align-self: center;
+  max-width: 250px;
+  /* height:; */
+}
+
+li>strong {
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+  margin-top: 5px;
+}
+
+li>span {
+  font-size: 21px;
+  font-weight: bold;
+  margin: 5px 0 20px;
+}
+
+li button {
+  background: #7159c1;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+  gap: 20px;
+  cursor: pointer;
+}
+
+li button:hover {
+  filter: brightness(0.8);
+}
+
+li div {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+li div svg {
+  margin-right: 5px;
+}
+
+/* carrinho */
+
+.container-cart {
+  padding: 20px;
+  border-radius: 4px;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 20px 50px;
+}
+
+.container-cart footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.container-cart footer button {
+  background: #7159c1;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.container-cart footer button:hover {
+  filter: brightness(0.6);
+}
+
+table {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  /* min-height: 60vh; */
+}
+
+
+table thead th {
+  color: #999;
+  text-align: left;
+  padding: 12px;
+}
+
+table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+
+table tbody td a img {
+  height: 16px !important;
+  width: 16px !important;
+}
+
+
+table strong {
+  color: #333;
+  display: block;
+}
+
+table span {
+  display: block;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+table div {
+  display: flex;
+  align-items: center;
+}
+
+table div input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  padding: 6px;
+  width: 50px;
+}
+
+table button {
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+table button:hover {
+  background-color: #dfdfdf;
+}
+
+table tbody tr td img {
+  height: 150px;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+}
+
+.total span {
+  color: #999;
+  font-weight: bold;
+}
+
+.total strong {
+  font-size: 28px;
+  margin-left: 5px;
+}
+
+.button-float {
+  background-color: #fff;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 12px; */
+  transition: 0.3s ease;
+}
+
+.button-float svg {
+  transform: scale(0.7);
+}
+
+.button-float:hover {
+  filter: brightness(0.7);
+}
+
+
+/* tela de login */

@@ -5,8 +5,6 @@ if (isset($_POST['enviar'])) {
   $username = $_POST['username'];
   $senha = $_POST['senha'];
 
-
-
   require_once('connection.php');
 
   $mysql_query = "INSERT INTO users (email, username, senha)
@@ -14,11 +12,10 @@ if (isset($_POST['enviar'])) {
 
   $result = $conn->query($mysql_query);
 
+  //Connection Close
+  mysqli_close($conn);
 
-	//Connection Close
-	mysqli_close($conn);
-
-	header("Location: login.php");
+  header("Location: login.php");
 }
 
 ?>
@@ -50,16 +47,16 @@ if (isset($_POST['enviar'])) {
 
       <div id="cadastro">
         <form autocomplete="off" method="POST" action="" autocomplete="off">
-        <input type="text" id="email"  class="fadeIn second" name="email" placeholder="email" required />
-          <input type="text" id="username"  class="fadeIn second" name="username" placeholder="Usuario" required />
-   
+          <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" required />
+          <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario" required />
+
           <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Senha" required />
           <input type="submit" name="enviar" class="fadeIn fourth" value="Cadastrar">
         </form>
       </div>
 
       <div id="formFooter">
-      <a class="underlineHover" href="login.php">Ja Possui Conta?</a>
+        <a class="underlineHover" href="login.php">Ja Possui Conta?</a>
       </div>
     </div>
   </div>

@@ -3,7 +3,6 @@ session_start();
 
 require_once('connection.php');
 
-
 if (isset($_POST['re_password'])) {
   $old_pass = $_POST['old_pass'];
   $new_pass = $_POST['new_pass'];
@@ -21,12 +20,12 @@ if (isset($_POST['re_password'])) {
     if ($new_pass == $re_pass) {
       $update_pwd = "UPDATE users set senha = md5('{$new_pass}') WHERE username='$username'";
       $update = $conn->query($update_pwd);
-      echo "<script>alert('Update Sucessfully');</script>";
+      echo "<script>alert('Senha alterado com sucesso!');</script>";
     } else {
-      echo "<script>alert('Your new and Retype Password is not match'); </script>";
+      echo "<script>alert('sua senha nova e a confirmação não são iguais!'); </script>";
     }
   } else {
-    echo "<script>alert('Your old password is wrong');</script>";
+    echo "<script>alert('sua senha antiga esta incorreta');</script>";
   }
 }
 
@@ -66,8 +65,6 @@ if (isset($_POST['re_password'])) {
 
 
   <div id="formContent" style="margin: 0 auto;">
-
-
     <h2 class="active">Alterar Senha </h2>
     <!-- Login Form -->
     <div id="login" class="tab">
@@ -79,7 +76,6 @@ if (isset($_POST['re_password'])) {
         <input type="submit" class="fourth" value="Alterar" name="re_password">
       </form>
     </div>
-
   </div>
   </div>
 </body>

@@ -34,7 +34,7 @@ $total = array(0.0);
 <body>
 
   <div class="container-cart">
-   <?php include('header.php'); ?>
+    <?php include('header.php'); ?>
     <table>
       <thead>
         <tr>

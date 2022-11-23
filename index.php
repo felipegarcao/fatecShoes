@@ -5,13 +5,6 @@ if (!isset($_SESSION['login'])) {
   header("Location: login.php");
 }
 
-// $qtdeCar = 0;
-
-// if (!isset($_SESSION['carrinho'])) {
-//   $qtdeCar = 0;
-// } else {
-//   $qtdeCar = count($_SESSION['carrinho']);
-// };
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +59,6 @@ $items = array(
       }
       ?>
     </ul>
-
     <?php
     if (isset($_GET['adicionar'])) {
       //vamos adicionar ao carrinho
@@ -78,32 +70,11 @@ $items = array(
         } else {
           $_SESSION['carrinho'][$idProduto] = array('quantidade' => 1, 'name' => $items[$idProduto]['name'], 'price' => $items[$idProduto]['price'], 'imagem' => $items[$idProduto]['imagem']);
         }
-        // echo '<script>alert("Adicionado ao carrinho !")</script>';
       } else {
         die("Voce não pode adicionar um item que não existe.");
       }
     }
     ?>
-    <div class="d-flex align-items-center justify-content-center">
-      <ol>
-        <li class="page-item disabled" style="background: transparent;">
-          <a class="page-link" href="#" aria-label="Anterior">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Anterior</span>
-          </a>
-        </li>
-        <li class="page-item active" style="background: transparent;"><a class="page-link" href="#">1</a></li>
-
-        <li class="page-item disabled" style="background: transparent;">
-          <a class="page-link" href="#" aria-label="Proxima">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Proxima</span>
-          </a>
-        </li>
-      </ol>
-    </div>
   </div>
-
 </body>
-
 </html>

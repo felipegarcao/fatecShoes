@@ -41,7 +41,12 @@ if (!isset($_SESSION['carrinho'])) {
       <div class='d-flex flex-column'>
         <a href='compras.php'>Compras</a>
         <a href='carrinho.php'>Meu Carrinho</a>
-        <a href='changePassword.php'>Alterar Senha</a>
+        <a href='alterarSenha.php'>Alterar Senha</a>
+        <?php
+          if($_SESSION['login'] == 'admin'){
+          echo "<a href='adm.php'>Painel ADM</ad>";
+          }
+        ?>
         <a class='text-danger' href='deslogar.php'>Sair</a>
       </div>
       ">

@@ -63,7 +63,6 @@ if (isset($_POST['re_password'])) {
     <?php include('header.php'); ?>
   </div>
 
-
   <div id="formContent" style="margin: 0 auto;">
     <h2 class="active">Alterar Senha </h2>
     <!-- Login Form -->

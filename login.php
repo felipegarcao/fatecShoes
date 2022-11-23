@@ -5,13 +5,12 @@ if (isset($_SESSION['login'])) {
     header("Location: index.php");
 }
 
-if ($_POST) {
+if (isset($_POST['enviar'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-
     require_once('connection.php');
-
+    
     $query = "SELECT * from users where username = '{$username}' and senha = md5('{$password}')";
 
     $result = $conn->query($query);
@@ -56,7 +55,7 @@ if ($_POST) {
                 <form method="POST" action="">
                     <input type="text" id="username" class="fadeIn second" name="username" placeholder="usuario" required />
                     <input type="password" id="password" class="fadeIn third" name="password" placeholder="senha" required />
-                    <input type="submit" class="fadeIn fourth" value="Logar">
+                    <input type="submit" name="enviar" class="fadeIn fourth" value="Logar">
                 </form>
             </div>
             <div id="formFooter">

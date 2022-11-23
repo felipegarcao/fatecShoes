@@ -9,7 +9,6 @@ if (!isset($_SESSION['carrinho'])) {
   header("Location: index.php");
 }
 
-
 $subtotal = 0.0;
 $total = array(0.0);
 ?>
@@ -32,7 +31,6 @@ $total = array(0.0);
 </head>
 
 <body>
-
   <div class="container-cart">
     <?php include('header.php'); ?>
     <table>
@@ -92,11 +90,7 @@ $total = array(0.0);
         <polyline fill="none" stroke="#7159c1" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" points="112 56 40 128 112 200" />
       </svg>
     </a>
-
-
     <?php
-
-
     if (isset($_GET['remover'])) {
       // remover produto do carrinho
       $idProduto = (int) $_GET['remover'];
@@ -109,10 +103,7 @@ $total = array(0.0);
         }
       }
     }
-
-
     ?>
   </div>
 </body>
-
 </html>

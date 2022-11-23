@@ -19,7 +19,6 @@ if (isset($_POST['enviar'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,12 +48,11 @@ if (isset($_POST['enviar'])) {
         <form autocomplete="off" method="POST" action="" autocomplete="off">
           <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" required />
           <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario" required />
-
           <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Senha" required />
+          
           <input type="submit" name="enviar" class="fadeIn fourth" value="Cadastrar">
         </form>
       </div>
-
       <div id="formFooter">
         <a class="underlineHover" href="login.php">Ja Possui Conta?</a>
       </div>

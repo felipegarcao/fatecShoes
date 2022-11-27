@@ -1,0 +1,41 @@
+.container-contato {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  flex-direction: column;
+  text-align: justify;
+  color: #fff;
+
+}
+
+.container-contato header {
+  text-align: center;
+}
+
+.container-contato header p {
+  font-size: .75rem;
+}
+
+.container-contato header, .container-contato form, .container-contato label {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.container-contato textarea {
+  width: 500px; 
+  margin: 0 auto; 
+  height: 100px;
+  padding: 10px;
+  font-size: .75rem;
+}
+
+/* .container-contato  */
+
+
+
+
+

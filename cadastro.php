@@ -7,15 +7,30 @@ if (isset($_POST['enviar'])) {
 
   require_once('connection.php');
 
-  $mysql_query = "INSERT INTO users (email, username, senha)
-                              VALUES ('{$email}', '{$username}', md5('$senha'))";
+  if ($email != '' && $username != '' && $senha != '') {
 
-  $result = $conn->query($mysql_query);
+    $verifyEmailDuplic = "SELECT email FROM users WHERE email = '$email'";
+    $verifyEmailDuplicRaw = mysqli_query($conn, $verifyEmailDuplic);
 
-  //Connection Close
-  mysqli_close($conn);
+    $verifyusernameDuplic = "SELECT username FROM users WHERE username = '$username'";
+    $verifyusernameDuplicRaw = mysqli_query($conn, $verifyusernameDuplic);
 
-  header("Location: login.php");
+    if (mysqli_num_rows($verifyEmailDuplicRaw) > 0) {
+      echo "<script>alert('Email, Ja cadastrado!')</script>";
+    } else if (mysqli_num_rows($verifyusernameDuplicRaw) > 0) {
+      echo "<script>alert('Username, Ja cadastrado!')</script>";
+    } else {
+      $mysql_query = "INSERT INTO users (email, username, senha)
+      VALUES ('{$email}', '{$username}', md5('$senha'))";
+
+      $result = $conn->query($mysql_query);
+
+      //Connection Close
+      mysqli_close($conn);
+
+      header("Location: login.php");
+    }
+  }
 }
 
 ?>
@@ -29,7 +44,7 @@ if (isset($_POST['enviar'])) {
     <div id="formContent">
       <h2 class="active">Cadastro</h2>
 
-      <div class="fadeIn first d-flex flex-column">
+      <div class="fadeIn first d-flex flex-column align-items-center">
         <img src="assets/jordan-logo.svg" width="200" height="200" id="icon" alt="User Icon" />
       </div>
 
@@ -38,7 +53,7 @@ if (isset($_POST['enviar'])) {
           <input type="text" id="email" class="fadeIn second" name="email" placeholder="email" required />
           <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuario" required />
           <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Senha" required />
-          
+
           <input type="submit" name="enviar" class="fadeIn fourth" value="Cadastrar">
         </form>
       </div>

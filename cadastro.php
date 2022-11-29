@@ -9,17 +9,14 @@ if (isset($_POST['enviar'])) {
 
   if ($email != '' && $username != '' && $senha != '') {
 
-    $verifyEmailDuplic = "SELECT email FROM users WHERE email = '$email'";
-    $verifyEmailDuplicRaw = mysqli_query($conn, $verifyEmailDuplic);
+    $verifyDuplic = "SELECT email FROM users WHERE email = '$email' OR username = '$username'";
+    $verifyDuplicRaw = mysqli_query($conn, $verifyDuplic);
 
-    $verifyusernameDuplic = "SELECT username FROM users WHERE username = '$username'";
-    $verifyusernameDuplicRaw = mysqli_query($conn, $verifyusernameDuplic);
 
-    if (mysqli_num_rows($verifyEmailDuplicRaw) > 0) {
-      echo "<script>alert('Email, Ja cadastrado!')</script>";
-    } else if (mysqli_num_rows($verifyusernameDuplicRaw) > 0) {
-      echo "<script>alert('Username, Ja cadastrado!')</script>";
-    } else {
+    if (mysqli_num_rows($verifyDuplicRaw) > 0) {
+      echo "<script>alert('Email ou Username, Ja cadastrado!')</script>";
+    } 
+     else {
       $mysql_query = "INSERT INTO users (email, username, senha)
       VALUES ('{$email}', '{$username}', md5('$senha'))";
 
@@ -63,5 +60,4 @@ if (isset($_POST['enviar'])) {
     </div>
   </div>
 </body>
-
 </html>

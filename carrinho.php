@@ -65,7 +65,8 @@ $total = array(0.0);
     </table>
 
     <footer>
-      <button type="button">Finalizar</button>
+      <button class="button-finish" type="button">Finalizar</button>
+
       <div class="total">
         <span>TOTAL</span>
         <strong>R$ <?php echo number_format(array_sum($total), 2, ",", ".") ?></strong>
@@ -79,6 +80,8 @@ $total = array(0.0);
         <polyline fill="none" stroke="#7159c1" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" points="112 56 40 128 112 200" />
       </svg>
     </a>
+
+
     <?php
     if (isset($_GET['remover'])) {
       // remover produto do carrinho
@@ -94,5 +97,29 @@ $total = array(0.0);
     }
     ?>
   </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const elem = document.querySelector(".button-finish");
+    elem.addEventListener("click", () => {
+      Swal.fire({
+        title: 'Deseja Finalizar Compras?',
+        confirmButtonText: 'Finalizar',
+        denyButtonText: `Cancelar`,
+        showDenyButton: true,
+      }).then((
+        result
+      ) => {
+        if (result.isConfirmed) {
+          Swal.fire('Compra Finalizada!', 'Sua compra foi finalizada com sucesso, obrigado!', 'success');
+          setTimeout(() => {
+            window.location.href = 'index.php';
+          }, 2000)
+        } else {
+          Swal.fire('Voce Cancelou a Compra!', 'compra não finalizada', 'error')
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>

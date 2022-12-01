@@ -18,6 +18,9 @@ $total = array(0.0);
 <?php include('head.php') ?>
 
 <?php include('head.php'); ?>
+<script>
+  var confirma = false;
+</script>
 
 <body>
   <div class="container-cart">
@@ -83,6 +86,14 @@ $total = array(0.0);
 
 
     <?php
+
+    $confirmaphp = "<script>document.write(confirma)</script>";
+    if ($confirmaphp) {
+      $_SESSION['compras'] = $_SESSION['carrinho'];
+      $_SESSION['carrinho'] = array();
+    }
+
+
     if (isset($_GET['remover'])) {
       // remover produto do carrinho
       $idProduto = (int) $_GET['remover'];
@@ -110,6 +121,7 @@ $total = array(0.0);
         result
       ) => {
         if (result.isConfirmed) {
+          confirma = true;
           Swal.fire('Compra Finalizada!', 'Sua compra foi finalizada com sucesso, obrigado!', 'success');
           setTimeout(() => {
             window.location.href = 'index.php';
